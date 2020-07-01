@@ -8,7 +8,7 @@
             $this->code = $code;
         }
         function showInfo(){
-            return $this->name.$this->code;
+            return $this->name.' - '.$this->code;
         }
         // function showCode(){
         //     return $this->code;

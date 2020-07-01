@@ -12,14 +12,14 @@ class PreExam
     function addPatient($name, $code)
     {
         $patient = new Patient($name, $code);
-        array_push($this->pre, $patient->name.' - '.$patient->code);
+        array_push($this->pre, $patient->showInfo());
         $this->count++;
     }
     function curePatient()
     {
         $patient = $this->pre[0];
         array_shift($this->pre);
-        echo 'this patient with info ' . $patient->showInfo() . ' is cured<br/>';
+        echo 'this patient with info ' . $patient . ' is cured<br/>';
     }
     function displayPre()
     {
