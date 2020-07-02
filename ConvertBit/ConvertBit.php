@@ -15,38 +15,40 @@ class StackBit
     // }
     function convertBit($value)
     {
-        while ($value > 1) {
-            array_push($this->stack,$value%2);
-            array_unshift($this->arr,$value%2);
-            $value = $value/2;
+        while ($value > 0) {
+            array_push($this->stack, $value % 2);
+            array_unshift($this->arr, $value % 2);
+            $value = (int)($value / 2);
         }
     }
-    function convertDec(){
+    function convertDec()
+    {
         $result = 0;
-        for ($i = 0; $i < count($this->arr); $i++){
-            $result += $this->stack[$i]*2**$i;
+        for ($i = 0; $i < count($this->arr); $i++) {
+            $result += $this->stack[$i] * 2 ** $i;
         }
-        return $result;
+        echo 'Decimal is: ' . $result;
     }
-    function displayStack(){
-        echo '<pre>';
+    function displayStack()
+    {
         print_r($this->stack);
-        echo '</pre>';
     }
-    function displayArr(){
-        echo '<pre>';
+    function displayArr()
+    {
         print_r($this->arr);
-        echo '</pre>';
     }
     function displayBit()
     {
+        echo 'Bit is: ';
         echo implode("", $this->arr);
     }
 }
 $stack1 = new StackBit();
-$stack1->convertBit(357);
+$stack1->convertBit(256);
 $stack1->displayBit();
+echo '<br/>';
 $stack1->displayStack();
+echo '<br/>';
 $stack1->displayArr();
-echo $stack1->convertDec();
-
+echo '<br/>';
+$stack1->convertDec();
